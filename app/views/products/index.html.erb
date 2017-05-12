@@ -1,0 +1,18 @@
+<h1>Here is a list of all of our available products:</h1>
+
+<h4><% @products.each do |product| %> <a href="/products/<%=product[:id]%>"><%= product.name %></a> <%= product.price %></h4>
+<p><%= product.description %></p>
+<p><a href="/products/<%= product.id%>/edit">Want to edit a product? Click here!</a></p>
+<a href="/products/<%= @product.id %>" data-confirm="Are you sure?" data-method="delete">
+<%= button_to "DESTROY THIS PRODUCT", "/products/#{product.id}", method: :delete %>
+<% end %>
+
+
+
+
+
+
+
+
+
+
