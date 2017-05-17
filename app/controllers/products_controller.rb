@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
     render "product_form.html.erb"
   end
   def create
-    @product = Product.new(name: params[:name_param], price: params[:price_param], description: params[:description_param])
+    @product = Product.new(name: params[:name_param], price: params[:price_param], description: params[:description_param], in_stock: params[:in_stock_param])
     @product.save
     flash[:success] = "Your tea has been successfully created!"
     redirect_to "/products/#{@product.id}"
@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
   end
   def update
     @product = Product.find_by(id: params[:id])
-    @product.update(name: params[:name_param], price: params[:price_param], description: params[:description_param])
+    @product.update(name: params[:name_param], price: params[:price_param], description: params[:description_param], in_stock: params[:in_stock_param])
     flash[:info] = "Your tea has been updated successfully"
     redirect_to "/products/#{@product.id}"
   end

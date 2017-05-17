@@ -1,7 +1,10 @@
 <h1> <%= @product.name %></h1>
-<p><%= @product.price %></p>
+<p><%= number_to_currency(@product.price) %></p>
 <p><%= @product.description %></p>
-
+<p>Price<%= number_to_currency(@product.sale_message) %></p>
+<p>Tax: <%= number_to_currency (@product.tax) %></p>
+<p>Total: <%= number_to_currency (@product.total) %></p>
+<p>In Stock: <%= @product.in_stock %></p>
 <h4><a href="/products/<%= @product[:id]%>/edit">Want to edit a product? Click here!</a></h4>
 
 <%= form_tag "/products/#{@product.id}", method: :delete do %>

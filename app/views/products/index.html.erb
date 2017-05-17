@@ -4,7 +4,7 @@
   <% product_slice.each do |product| %> 
   <div class="col-md-4">
     <div class="well">
-      <a href="/products/<%=product[:id]%>"><%= product.name %></a> <%= product.price %>
+      <a href="/products/<%=product[:id]%>"><%= product.name %></a> <%= number_to_currency(product.price) %>
       <p><%= product.description %></p>
       <p><a href="/products/<%= product.id%>/edit">Want to edit a product? Click here!</a></p>
       <a href="/products/<%= product.id %>" data-confirm="Are you sure?" data-method="delete">
