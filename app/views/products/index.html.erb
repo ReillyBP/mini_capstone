@@ -6,10 +6,10 @@
     <div class="well">
       <a href="/products/<%=product[:id]%>"><%= product.name %></a> <%= number_to_currency(product.price) %>
       <p><%= product.description %></p>
+      <img src="<%= product.images.first.url %>">
       <p><a href="/products/<%= product.id%>/edit">Want to edit a product? Click here!</a></p>
       <a href="/products/<%= product.id %>" data-confirm="Are you sure?" data-method="delete">
       <%= button_to "DESTROY THIS PRODUCT", "/products/#{product.id}", method: :delete %>
-      <img src= "http://torontotea.ca/images/kama%20sutra%20chai.jpg">
     </div>
   </div>
 
