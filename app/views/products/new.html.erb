@@ -1,7 +1,1 @@
-<%= form_tag "/products", method: :post do %>
-<div> Name of Tea: <input type= "text" name="name_param">
-<div>Price: <input type= "text" name="price_param">
-<div>Description:<input type= "text" name="description_param">
-<input type= "submit" value="Enter New Product">
-<%end%>
-
+<%= render "form", url: "/products/#{@product.id}", form_method: :patch, heading: "Edit your tea product below:" %>

@@ -1,0 +1,10 @@
+<h1>Your Cart:</h1>
+<p><%@carted_products.each do |carted_product| %></p>
+<p>Item: <%=carted_product.product.name %></p>
+<p>Quantity <%=carted_product.quantity  %></p>
+<p>Status: <%=carted_product.status %></p>
+<p>Order Number: <%=carted_product.order_id %></p>
+<%= button_to "Remove from cart", "/carted_products/#{carted_product.id}", method: :delete %>
+<%end %>
+
+<div><%= button_to "Checkout", "/orders" %></div>

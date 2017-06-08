@@ -1,15 +1,30 @@
 <h1> <%= @product.name %></h1>
-<p><%= number_to_currency(@product.price) %></p>
+<p>Price:<%= number_to_currency(@product.price) %></p>
 <p><%= @product.description %></p>
-<p>Price<%= number_to_currency(@product.sale_message) %></p>
+<p><%= @product.sale_message %></p>
 <p>Tax: <%= number_to_currency (@product.tax) %></p>
 <p>Total: <%= number_to_currency (@product.total) %></p>
 <p>In Stock: <%= @product.in_stock %></p>
 <p>Supplier: <%= @product.supplier.name %></p>
-<p>
+<p>Category: 
+  <ul>
+    <% @product.categories.each do |category| %>
+    <li><%= category.name.capitalize %></li>
+  </ul>
+  <%end %>
+
+<% if current_user %>
+  <%= form_tag "/carted_products", method: :post do %>
+    <p>How many would you like to order?</p>
+    <input type="text" name="quantity" >
+    <input type="submit" value="add to cart" class="btn btn-default">
+    <input type="hidden" name="product_id" value="<%= @product.id%>">
+  <% end %>
+<% end %>
 Images:<% @product.images.each do |image|%>
 <img src="<%= image.url %>">
 <% end %>
+<%= link_to "Add Image", "/images/new?product_id=#{@product.id}" %>
 <h4><a href="/products/<%= @product[:id]%>/edit">Want to edit a product? Click here!</a></h4>
 
 <%= form_tag "/products/#{@product.id}", method: :delete do %>

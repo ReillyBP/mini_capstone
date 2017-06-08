@@ -7,8 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 # Product.update_all(in_stock: true)
 Product.all.each do |product|
-  Product.update(supplier_id: Supplier.first.id)
+  product.update(supplier_id: Supplier.first.id)
 end
 Product.all.each do |product|
   Image.create(url: "https://www.theteamakers.co.uk/user/products/large/Eary%20Grey%203.jpg", product_id: product.id)
 end
+
+# Product.find_each do |product|

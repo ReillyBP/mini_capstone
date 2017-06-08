@@ -1,3 +1,7 @@
+<h1>You have seen this page <%= pluralize(@visit_count, "number of time") %>!</h1>
+<%if current_user %>
+<h1>Welcome <%= current_user.name %>!</h1>
+<% end %>
 <h1>Here is a list of all of our available products:</h1>
   <% @products.each_slice(3) do |product_slice| %> 
 <div class="row">

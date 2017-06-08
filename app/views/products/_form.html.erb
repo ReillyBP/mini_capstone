@@ -1,0 +1,7 @@
+<h1><%= heading %></h1>
+<%= form_tag url, method: form_method do %>
+<div>Name of Tea: <input type= "text" value= "<%= @product.name %>" name="name_param"></div>
+<div>Price: <input type="text" value="<%= @product.price %>" name="price_param"></div>
+<div>Description:<input type= "text" value= "<%=@product.description %>" name="description_param"></div>
+<input type= "submit" value="Enter New Product">
+<%end%>
